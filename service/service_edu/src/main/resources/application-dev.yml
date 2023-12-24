@@ -1,0 +1,33 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /edu_service
+
+spring:
+  application:
+    name: service-edu
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gl?serverTimezone=Asia/Shanghai
+    username: root
+    password: NieCongCong123!@#
+# 返回json的全局时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+# mybatis日志
+# 在类路径下递归查找xml文件
+#  mapper-locations: classpath*:com.cc.eduservice.mapper.xml
+
+# 设置日志级别, 默认是info
+logging:
+  level:
+    root: INFO
+
+mybatis-plus:
+  mapper-locations: classpath:com/cc/eduservice/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

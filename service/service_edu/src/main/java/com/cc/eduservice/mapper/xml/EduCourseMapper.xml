@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.eduservice.mapper.EduCourseMapper">
+
+    <select id="findAll" resultType="com.cc.eduservice.entity.vo.CourseInfoVO">
+        select e1.id,
+               e1.teacher_id,
+               e1.subject_id,
+               e1.subject_parent_id,
+               e1.title,
+               e1.price,
+               e1.lesson_num,
+               e1.cover,
+               e1.buy_count,
+               e1.view_count,
+               e1.version,
+               e1.status,
+               e1.is_deleted,
+               e1.gmt_create,
+               e1.gmt_modified,
+               e2.description
+        from edu_course e1
+                 left join edu_course_description e2 on e1.id = e2.id;
+    </select>
+</mapper>

@@ -1,0 +1,22 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /oos_service
+
+spring:
+  application:
+    name: service-oos
+  profiles:
+    active: dev
+
+aliyun:
+  oos:
+    file:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      accessKey: LTAI5t7CXt5WDSbPmbVfuGBe
+      accessKeySecret: eWO1LecS5kl9fV3363NsdluI9gHK5K
+      bucketName: edu-guli-cc-1
+
+logging:
+  level:
+    root: info
