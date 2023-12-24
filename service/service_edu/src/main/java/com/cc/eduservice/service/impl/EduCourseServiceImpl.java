@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import java.util.List;
 public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse> implements EduCourseService {
 
     @Autowired
+    @Resource
     EduCourseDescriptionMapper eduCourseDescriptionMapper;
 
     @Override
@@ -82,6 +84,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     }
 
     @Override
+    @Transactional(rollbackFor = SQLException.class)
     public boolean updateCourseInfoVOById(CourseInfoVO entity) {
         boolean flag1 = super.updateById(entity);
         EduCourseDescription description = new EduCourseDescription();
